@@ -21,11 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     clearFiltersBtn.addEventListener('click', clearFilters);
   }
 
-  // Add live location button event listener
-  const locateBtn = document.getElementById('locateBtn');
-  if (locateBtn) {
-    locateBtn.addEventListener('click', showUserLocation);
-  }
 });
 
 /**
@@ -74,8 +69,24 @@ const greenFootballIcon = L.icon({
 function initializeMap() {
   console.log('[map.js] Initializing map.');
 
-  // Initialize the Leaflet map centered at a default location
-  map = L.map('map').setView([20, 0], 2); // Center at (20, 0) with zoom level 2
+  map = L.map('map', {
+    center: [20, 0],
+    zoom: 2,
+    zoomControl: false // 1) Disable default zoom control
+  });
+  
+  // 2) Re-add zoom control at desired corner
+  L.control.zoom({
+    position: 'topright' // or 'bottomright' or 'bottomleft'
+  }).addTo(map);
+  
+  L.control.locate({
+    position: 'topright',  // put it near the zoom buttons
+    flyTo: true,           // animate the map to the user location
+    strings: {
+      title: "Show me where I am"  // tooltip when you hover over the button
+    }
+  }).addTo(map);
 
   // Add Carto’s “Voyager” tile layer
   L.tileLayer(
