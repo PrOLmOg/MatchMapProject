@@ -1,55 +1,103 @@
-/* public/css/styles.css */
+/* If your hero-section from the homepage is still relevant, keep it */
+.hero-section {
+  min-height: 70vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: darken;
+}
 
-/* Container that uses the competition logo as a background */
+/* Reuse or remove sections for other pages */
+section {
+  padding: 3rem 0;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Login Page Styles */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.login-body {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 0.5rem;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Sign Up Page Styles */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.signup-body {
+  /* Option A: Different gradient from login page, for visual difference */
+  background: linear-gradient(135deg, #00695c 0%, #004d40 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  /* Option B: Shared design with login 
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  */
+
+  /* Option C: Background Image 
+    background: url("../images/signup-bg.jpg") center center/cover no-repeat;
+    background-blend-mode: darken;
+  */
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 0.5rem;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Keep your existing match-popup code, if needed */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .match-popup {
-    position: relative; 
-    width: 250px;   /* Adjust as needed */
-    height: 150px;  /* Adjust as needed */
-    background-size: cover;    /* Make background fill container */
-    background-position: center;
-  }
-  
-  /* The semi-transparent overlay for text and team logos */
-  .match-popup .popup-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.4); /* Dark overlay with some transparency */
-    color: #fff;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  /* Container for the two teams' logos and "VS" text */
-  .match-popup .team-logos {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-bottom: 5px;
-  }
-  
-  /* Each team logo */
-  .team-logo {
-    width: 40px; /* Adjust size as needed */
-    height: 40px;
-    object-fit: contain;  /* Ensures the aspect ratio is maintained */
-    border: 2px solid #fff;
-    border-radius: 50%;
-  }
-  
-  /* The "VS" text between the two logos */
-  .vs-text {
-    font-weight: bold;
-    font-size: 18px;
-    margin: 0 5px;
-  }
-  
-  /* Match details: teams, date, stadium, etc. */
-  .match-popup .match-details {
-    font-size: 14px;
-  }
-  
+  position: relative;
+  width: 250px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+.match-popup .popup-overlay {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.match-popup .team-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 5px;
+}
+
+.team-logo {
+  width: 40px; 
+  height: 40px;
+  object-fit: contain;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.vs-text {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 5px;
+}
+
+.match-popup .match-details {
+  font-size: 14px;
+}

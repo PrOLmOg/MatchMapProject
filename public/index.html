@@ -3,22 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>MatchMap - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  >
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">MatchMap</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">MatchMap</a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+      <div 
+        class="collapse navbar-collapse justify-content-end" 
+        id="navbarNav"
+      >
+        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="signup.html">Sign Up</a>
           </li>
@@ -31,19 +45,91 @@
   </nav>
 
   <!-- Hero Section -->
-  <div class="container mt-5">
-    <div class="jumbotron text-center">
-      <h1 class="display-4">Welcome to MatchMap</h1>
-      <p class="lead">Explore football matches around the world on an interactive map.</p>
-      <hr class="my-4">
-      <p>Sign up or log in to get started.</p>
-      <a class="btn btn-primary btn-lg" href="signup.html" role="button">Sign Up</a>
-      <a class="btn btn-success btn-lg" href="login.html" role="button">Login</a>
+  <header 
+    class="bg-dark text-white py-5 hero-section d-flex align-items-center" 
+    style="background: url('images/hero-bg.jpg') center center/cover no-repeat;"
+  >
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Welcome to MatchMap</h1>
+      <p class="lead mb-4">
+        Explore football matches around the world on an interactive map.
+      </p>
+      <div>
+        <a class="btn btn-primary btn-lg me-2" href="signup.html" role="button">
+          Sign Up
+        </a>
+        <a class="btn btn-success btn-lg" href="login.html" role="button">
+          Login
+        </a>
+      </div>
     </div>
-  </div>
+  </header>
+
+  <!-- Why MatchMap? (Optional Additional Section) -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Why MatchMap?</h2>
+      <div class="row g-4">
+        <div class="col-md-4 text-center">
+          <div class="p-3 border rounded shadow-sm">
+            <img 
+              src="images/icon-world.svg" 
+              alt="World Icon" 
+              width="60" 
+              class="mb-3"
+            >
+            <h5>Global Coverage</h5>
+            <p class="mb-0">
+              Discover matches across all major leagues and tournaments from
+              every corner of the globe.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="p-3 border rounded shadow-sm">
+            <img 
+              src="images/icon-map.svg" 
+              alt="Map Icon" 
+              width="60" 
+              class="mb-3"
+            >
+            <h5>Interactive Maps</h5>
+            <p class="mb-0">
+              Visualize stadiums and match locations on an interactive map 
+              for a better experience.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="p-3 border rounded shadow-sm">
+            <img 
+              src="images/icon-users.svg" 
+              alt="Users Icon" 
+              width="60" 
+              class="mb-3"
+            >
+            <h5>Community</h5>
+            <p class="mb-0">
+              Connect with other fans, share match predictions, and create 
+              your own watch parties on <a href>Telegram</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 MatchMap. All rights reserved.</p>
+    </div>
+  </footer>
 
   <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <!-- Custom JS (if any) -->
 </body>
 </html>

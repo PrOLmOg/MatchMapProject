@@ -77,11 +77,14 @@ function initializeMap() {
   // Initialize the Leaflet map centered at a default location
   map = L.map('map').setView([20, 0], 2); // Center at (20, 0) with zoom level 2
 
-  // Add OpenStreetMap tile layer
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  }).addTo(map);
+  // Add Carto’s “Voyager” tile layer
+  L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    {
+      attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>'
+    }
+  ).addTo(map);
+  
   console.log('[map.js] OpenStreetMap tile layer added.');
 
   // Initialize Marker Cluster Group
