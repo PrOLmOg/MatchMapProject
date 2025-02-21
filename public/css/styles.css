@@ -1,0 +1,55 @@
+/* public/css/styles.css */
+
+/* Container that uses the competition logo as a background */
+.match-popup {
+    position: relative; 
+    width: 250px;   /* Adjust as needed */
+    height: 150px;  /* Adjust as needed */
+    background-size: cover;    /* Make background fill container */
+    background-position: center;
+  }
+  
+  /* The semi-transparent overlay for text and team logos */
+  .match-popup .popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4); /* Dark overlay with some transparency */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Container for the two teams' logos and "VS" text */
+  .match-popup .team-logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 5px;
+  }
+  
+  /* Each team logo */
+  .team-logo {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    object-fit: contain;  /* Ensures the aspect ratio is maintained */
+    border: 2px solid #fff;
+    border-radius: 50%;
+  }
+  
+  /* The "VS" text between the two logos */
+  .vs-text {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 5px;
+  }
+  
+  /* Match details: teams, date, stadium, etc. */
+  .match-popup .match-details {
+    font-size: 14px;
+  }
+  

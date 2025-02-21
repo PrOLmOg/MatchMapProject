@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MatchMap - Interactive Map</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Marker Cluster CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Set the height of the map */
+    #map {
+      height: 80vh;
+      width: 100%;
+    }
+
+    /* Filter Controls */
+    .filter-control {
+      background: white;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      font-family: Arial, sans-serif;
+      width: 250px;
+      position: absolute;
+      top: 80px;
+      left: 15px;
+      z-index: 1000;
+    }
+
+    .filter-control h5 {
+      margin-top: 0;
+    }
+
+    .filter-control label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .filter-control input,
+    .filter-control select {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+
+    .filter-control button {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    /* Logout Button */
+    #logoutBtn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 1000;
+    }
+
+    /* Live Location Button */
+    #locateBtn {
+      position: absolute;
+      top: 320px; /* Adjust based on filter panel height */
+      left: 15px;
+      margin-top: 10px;
+      z-index: 1000;
+      width: 250px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">MatchMap</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <!-- Future navigation items can be added here -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Logout Button -->
+  <button id="logoutBtn" class="btn btn-danger">Logout</button>
+
+  <!-- Filter Panel -->
+  <div class="filter-control">
+    <h5>Filters</h5>
+
+    <!-- League Filter -->
+    <label for="leagueSelect">League:</label>
+    <select id="leagueSelect">
+      <option value="">All Leagues</option>
+      <!-- Hardcode as many leagues as desired, or fetch them dynamically from the backend -->
+      <option value="Premier League">Premier League</option>
+      <option value="La Liga">La Liga</option>
+      <option value="EFL Championship">EFL Championship</option>
+      <option value="Serie A">Serie A</option>
+      <option value="Bundesliga">Bundesliga</option>
+      <option value="Ligue 1">Ligue 1</option>
+      <option value="Champions League">Champions League</option>
+      <option value="Europa League">Europa League</option>
+      <!-- Add more as needed -->
+    </select>
+
+    <!-- Team Filter -->
+    <label for="teamInput">Team:</label>
+    <input type="text" id="teamInput" placeholder="e.g. Leeds United FC" />
+
+    <!-- Radius Filter -->
+    <label for="radiusInput">Radius (km):</label>
+    <input type="number" id="radiusInput" placeholder="e.g. 50" min="1" />
+    <!-- New Date Filters -->
+    <label for="dateFrom">From Date:</label>
+    <input type="date" id="dateFrom" />
+    
+    <label for="dateTo">To Date:</label>
+    <input type="date" id="dateTo" />
+    
+    <!-- Filter Buttons -->
+    <button id="applyFiltersBtn" class="btn btn-primary">Apply Filters</button>
+    <button id="clearFiltersBtn" class="btn btn-secondary">Clear Filters</button>
+  </div>
+
+  <!-- Live Location Button -->
+  <button id="locateBtn" class="btn btn-info">Show My Location</button>
+
+  <!-- Map Container -->
+  <div class="container-fluid mt-3">
+    <div id="map"></div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Marker Cluster JS -->
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <!-- Custom JS -->
+  <script src="js/map.js"></script>
+</body>
+</html>
