@@ -4,10 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeMap();
 
   const logoutBtn = document.getElementById('logoutBtn');
+  const adminBtn = document.getElementById('adminBtn');
+
   if (logoutBtn) {
     logoutBtn.addEventListener('click', logout);
   } else {
     console.error('Logout button not found in the DOM.');
+  }
+
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
+  if (isAdmin && adminBtn) {
+    adminBtn.style.display = 'inline-block'; // or 'block'
+    adminBtn.addEventListener('click', () => {
+      window.location.href = 'admin.html';
+    });
+  } else if (adminBtn) {
+    // If not admin, remove it from the DOM or keep it hidden
+    adminBtn.remove();
   }
 
   // Add filter event listeners

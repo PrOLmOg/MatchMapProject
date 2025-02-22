@@ -57,6 +57,13 @@ async function login(event) {
         localStorage.setItem('token', token);
         console.log('Token stored in localStorage:', token);
 
+        // Store isAdmin in localStorage
+      if (isAdmin) {
+        localStorage.setItem('isAdmin', 'true');
+      } else {
+        localStorage.removeItem('isAdmin'); // or set to 'false'
+        }
+
         // Redirect based on user role
         if (isAdmin === true) {
           // Admin user -> admin dashboard
