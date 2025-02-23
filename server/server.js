@@ -19,6 +19,11 @@ const adminRoutes = require('./routes/admin');
 app.use(cors());
 app.use(express.json());
 
+app.use('/api', (req, res, next) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  next();
+});
+
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
