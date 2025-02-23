@@ -57,10 +57,12 @@ section {
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .match-popup {
   position: relative;
-  width: 250px;
-  height: 150px;
+  width: 280px;
+  min-height: 150px;
   background-size: cover;
   background-position: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .match-popup .popup-overlay {
@@ -100,4 +102,7 @@ section {
 
 .match-popup .match-details {
   font-size: 14px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }

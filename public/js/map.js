@@ -265,6 +265,9 @@ async function fetchMatches(queryString = '') {
 
       // Create a marker
       const marker = L.marker([lat, lon], { icon: iconToUse });
+
+      // Construct the Google Maps Directions URL for this match
+      const directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=&destination=${encodeURIComponent(match.stadium_name)}&travelmode=transit`;
       
       // Format match date
       const formattedDate = new Date(match_date).toLocaleString();
@@ -282,7 +285,7 @@ async function fetchMatches(queryString = '') {
               <strong>${match.team_home} vs ${match.team_away}</strong><br/>
               <em>${match.competition_name}</em><br/>
               ${new Date(match.match_date).toLocaleString()}<br/>
-              Stadium: ${match.stadium_name}
+              Stadium: <a href="${directionsUrl}" target="_blank">${match.stadium_name}</a>
             </div>
           </div>
         </div>
