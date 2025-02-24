@@ -39,7 +39,7 @@ async function handleSignUp(event) {
 
   try {
     // Send a POST request to the /api/auth/signup endpoint with the user details
-    const response = await fetch('http://localhost:5000/api/auth/signup', {
+    const response = await fetch('/api/auth/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', // Specify the content type as JSON

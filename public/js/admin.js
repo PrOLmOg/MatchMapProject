@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function loadMatches() {
   try {
-    const response = await fetch('http://localhost:5000/api/admin/matches', {
+    const response = await fetch('/api/admin/matches', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -82,7 +82,7 @@ function renderMatchesTable(matches) {
  */
 async function startEditMatch(matchId) {
   try {
-    const response = await fetch(`http://localhost:5000/api/admin/matches/${matchId}`, {
+    const response = await fetch(`/api/admin/matches/${matchId}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -189,7 +189,7 @@ async function deleteMatch(matchId) {
     return;
   }
   try {
-    const response = await fetch(`http://localhost:5000/api/admin/matches/${matchId}`, {
+    const response = await fetch(`/api/admin/matches/${matchId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
