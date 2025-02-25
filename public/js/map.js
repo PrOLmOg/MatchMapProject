@@ -101,6 +101,13 @@ function initializeMap() {
     }
   }).addTo(map);
 
+  // Listen for locationfound event from the locate control
+  locateControl.on('locationfound', (e) => {
+    // The event contains latitude and longitude
+    userLocation = { lat: e.latitude, lon: e.longitude };
+    console.log('[map.js] Leaflet Locate Control set userLocation:', userLocation);
+  });
+
   // Add Carto’s “Voyager” tile layer
   L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
