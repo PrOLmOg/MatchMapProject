@@ -93,22 +93,13 @@ function initializeMap() {
     position: 'topright' // or 'bottomright' or 'bottomleft'
   }).addTo(map);
   
-  const locateControl = L.control.locate({
+  L.control.locate({
     position: 'topright',  // put it near the zoom buttons
     flyTo: true,           // animate the map to the user location
     strings: {
       title: "Show me where I am"  // tooltip when you hover over the button
     }
   }).addTo(map);
-
-  locateControl.on('locationfound', (e) => {
-    // The plugin passes an event with lat/lng
-    userLocation = {
-      lat: e.latitude,
-      lon: e.longitude
-    };
-    console.log('[map.js] Leaflet Locate Control set userLocation:', userLocation);
-  });
 
   // Add Carto’s “Voyager” tile layer
   L.tileLayer(
