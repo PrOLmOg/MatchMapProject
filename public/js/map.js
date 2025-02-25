@@ -357,3 +357,49 @@ function clearAlerts() {
   const alerts = document.querySelectorAll('.alert');
   alerts.forEach(alert => alert.remove());
 }
+
+/**
+ * Shows the user's current location on the map.
+ */
+function showUserLocation() {
+  if (!navigator.geolocation) {
+    alert('Geolocation is not supported by your browser.');
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    position => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      console.log(`[map.js] Your location: lat=${lat}, lon=${lon}`);
+
+      userLocation = { lat, lon };
+
+      // Create or update a marker for the user location
+      if (window.userMarker) {
+        map.removeLayer(window.userMarker);
+      }
+
+      window.userMarker = L.marker([lat, lon], {
+        icon: L.icon({
+          iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png', // Custom icon URL if desired
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+          shadowSize: [41, 41]
+        })
+      }).addTo(map);
+
+      window.userMarker.bindPopup('<strong>You are here!</strong>').openPopup();
+
+      // Optionally, set the view to the user's location
+      map.setView([lat, lon], 13);
+    },
+    err => {
+      console.error('Error getting geolocation:', err);
+      alert('Unable to retrieve your location.');
+    },
+    { enableHighAccuracy: true }
+  );
+}
