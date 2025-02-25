@@ -93,7 +93,7 @@ function initializeMap() {
     position: 'topright' // or 'bottomright' or 'bottomleft'
   }).addTo(map);
   
-  L.control.locate({
+  const locateControl = L.control.locate({
     position: 'topright',  // put it near the zoom buttons
     flyTo: true,           // animate the map to the user location
     strings: {
